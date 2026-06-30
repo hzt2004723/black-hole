@@ -86,7 +86,7 @@
         const clock = new THREE.Clock();
         
         // 物理常数设定
-        const EVENT_HORIZON_RADIUS = 3.0; // 黑洞事件视界大小
+        const EVENT_HORIZON_RADIUS = 10.0; // 黑洞事件视界大小
 
         function init() {
             // ==========================================
@@ -94,7 +94,7 @@
             // ==========================================
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // 限制像素比优化性能
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 4)); // 限制像素比优化性能
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
             // ==========================================
@@ -247,7 +247,7 @@
                 const theta = Math.random() * Math.PI * 2;
                 
                 // 盘的厚度：外侧略厚，内侧极薄
-                const thickness = (r - innerRadius) * 0.08;
+                const thickness = (r - innerRadius) * 0.02;
                 const y = (Math.random() - 0.5) * thickness;
 
                 positions[i*3] = r * Math.cos(theta);
